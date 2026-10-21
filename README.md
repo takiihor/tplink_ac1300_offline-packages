@@ -14,7 +14,6 @@ diagnostics, and a persistence fix for firmware power-save issues.
 .
 ├── README.md
 └── rtl8822bu-t3u/
-    ├── rtl8822bu-t3u-offline-ubuntu24.04.tar.gz   # ready-to-copy release archive
     └── pkg/
         ├── README.md            # full documentation (Chinese)
         ├── install.sh           # one-shot installer (firmware + tools + self-check)
@@ -27,11 +26,18 @@ diagnostics, and a persistence fix for firmware power-save issues.
 
 ## Quick start (offline machine)
 
+Copy the `rtl8822bu-t3u/pkg` directory to the offline machine, then:
+
 ```bash
-tar xzf rtl8822bu-t3u-offline-ubuntu24.04.tar.gz
-cd rtl8822bu-t3u-offline
+cd pkg
 ./check.sh            # diagnostics
 sudo ./install.sh     # install firmware, missing tools, reload driver
+```
+
+If you prefer a single archive, create one from the package directory:
+
+```bash
+tar czf rtl8822bu-t3u-offline-ubuntu24.04.tar.gz -C rtl8822bu-t3u pkg
 ```
 
 For power-save instability across reboots:
